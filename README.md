@@ -1,28 +1,34 @@
-# 🎯 TaskFlow Manager - A Personal Task Management Web App
+# 💼 Juan Carlos Murillo - Portfolio Website
 
-This is a portfolio project built using [Next.js](https://nextjs.org/), [Tailwind CSS](https://tailwindcss.com/), and [Supabase](https://supabase.com/). It helps users manage their tasks with tags, priorities, deadlines, and visual tracking.
+Welcome to my personal developer portfolio built with [Next.js](https://nextjs.org/), [Tailwind CSS](https://tailwindcss.com/), and deployed on [Vercel](https://vercel.com).
 
-## 🚀 Features
+This site showcases my skills, projects, and contact information.
 
-- ✅ Add, edit, and delete tasks
-- 🗂️ Tag and categorize tasks
-- ⏳ Set due dates and priorities
-- 🌙 Dark mode support
-- 📊 Task progress and summary dashboard
+## 🔗 Live Site
+
+👉 [https://portfolio-juan-carlos-murillos-projects.vercel.app](https://portfolio-juan-carlos-murillos-projects.vercel.app)
 
 ## 🛠️ Tech Stack
 
-- **Framework**: Next.js 14 (App Router)
-- **Styling**: Tailwind CSS
-- **Database/Backend**: Supabase
-- **Deployment**: Vercel
+- **Framework:** Next.js 14 (App Router)
+- **Styling:** Tailwind CSS
+- **Deployment:** Vercel
+- **Fonts:** Geist (via `next/font`)
+- **Dark Mode:** Tailwind + `theme` toggle
 
-## 📦 Getting Started
+## 📁 Pages
 
-Clone the repo and install dependencies:
+- `/` - Home
+- `/about` - About Me
+- `/projects` - Featured Projects
+- `/contact` - Contact Form or Links
+
+## 🚀 Running Locally
+
+Clone the repo and run locally:
 
 ```bash
-git clone https://github.com/yourusername/taskflow-manager.git
-cd taskflow-manager
+git clone https://github.com/yourusername/portfolio.git
+cd portfolio
 npm install
 npm run dev
