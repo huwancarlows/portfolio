@@ -80,29 +80,30 @@ export default function TechStackSection() {
 
     return (
         <>
-            <h2 className="text-2xl font-semibold mb-2">Tech Stack</h2>
-            <ul className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+            <h2 className="section-title">Tech Stack</h2>
+            <p className="section-subtitle mb-6">Tools and technologies I use regularly.</p>
+            <ul className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
                 {techs.map((tech, idx) => (
                     <li key={tech.name} className="relative">
                         <a
                             href={tech.url}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="flex flex-col items-center bg-gray-100 dark:bg-gray-800 rounded p-2 text-center shadow-sm hover:bg-blue-100 dark:hover:bg-blue-900 transition cursor-pointer"
+                            className="card card-hover flex flex-col items-center rounded-xl p-3 sm:p-4 text-center cursor-pointer transition-transform duration-200 hover:scale-[1.02]"
                             onClick={e => { e.preventDefault(); setActive(active === idx ? null : idx); }}
                             tabIndex={0}
                             aria-label={tech.name}
                             onBlur={() => setTimeout(() => setActive(null), 200)}
                         >
                             {tech.icon}
-                            <span className="mt-1 font-medium text-sm">{tech.name}</span>
+                            <span className="mt-2 font-medium text-sm">{tech.name}</span>
                         </a>
                         {/* Tooltip/Popover */}
                         {active === idx && (
-                            <div className="absolute left-1/2 -translate-x-1/2 top-16 z-20 w-48 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded shadow-lg p-3 text-xs text-gray-800 dark:text-gray-100 animate-fade-in">
+                            <div className="absolute left-1/2 -translate-x-1/2 top-16 z-20 w-56 bg-card border border-border rounded-xl shadow-lg p-3 text-xs text-foreground float">
                                 <div className="font-bold mb-1">{tech.name}</div>
                                 <div>{tech.description}</div>
-                                <div className="mt-2 text-blue-500 underline"><a href={tech.url} target="_blank" rel="noopener noreferrer">Learn more</a></div>
+                                <div className="mt-2"><a className="text-blue-600 dark:text-blue-400 underline" href={tech.url} target="_blank" rel="noopener noreferrer">Learn more</a></div>
                             </div>
                         )}
                     </li>

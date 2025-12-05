@@ -2,13 +2,41 @@
 
 
 :root {
-  --background: #ffffff;
+  --background: #f1f5f9; /* slate-100: softer than white */
   --foreground: #171717;
+  /* text-muted should be a readable gray on light bg */
+  --muted: #6b7280; /* gray-500 */
+  /* subtle surface background */
+  --muted-bg: #eef2f6; /* near-surface tint */
+  --card: #f9fafb; /* gray-50: off-white card */
+  --border: #dfe3ea; /* softer, more visible border on light bg */
+  --primary: #3b82f6;
+  --primary-foreground: #ffffff;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+/* Explicit dark theme override when using next-themes (class strategy) */
+.dark {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+  /* text-muted should be lighter gray on dark bg */
+  --muted: #9ca3af; /* gray-400 */
+  --muted-bg: #1f2937; /* gray-800 */
+  --card: #111827;
+  --border: #374151;
+  --primary: #60a5fa;
+  --primary-foreground: #0b1220;
+}
+
+/* Utility classes mapped to CSS variables for theme tokens */
+.bg-background { background-color: var(--background); }
+.text-foreground { color: var(--foreground); }
+.text-muted { color: var(--muted); }
+.bg-muted { background-color: var(--muted-bg); }
+.bg-card { background-color: var(--card); }
+.border-border { border-color: var(--border); }
+
+/* Expose font variables for convenience (used in body class) */
+:root {
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
@@ -25,3 +53,104 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Layout helpers */
+.container {
+  max-width: 80rem; /* 1280px */
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.section {
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+}
+
+@media (min-width: 640px) { /* sm */
+  .section { padding-top: 4rem; padding-bottom: 4rem; }
+}
+@media (min-width: 1024px) { /* lg */
+  .section { padding-top: 5rem; padding-bottom: 5rem; }
+}
+
+.section-title {
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  margin-bottom: 0.75rem;
+  font-size: clamp(1.5rem, 2.5vw, 2.25rem);
+  background: linear-gradient(90deg,
+    color-mix(in oklab, var(--primary) 70%, #60a5fa) 0%,
+    color-mix(in oklab, #a78bfa 70%, #93c5fd) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.section-subtitle {
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.card {
+  background-color: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+  padding: 1.25rem; /* default padding for consistent spacing */
+}
+
+.card-hover {
+  transition: box-shadow 200ms ease, border-color 200ms ease, transform 200ms ease;
+}
+.card-hover:hover {
+  border-color: color-mix(in oklab, var(--primary) 40%, var(--border));
+  box-shadow: 0 12px 40px -16px color-mix(in oklab, var(--primary) 45%, transparent);
+  transform: translateY(-2px);
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid var(--border);
+  background-color: color-mix(in oklab, var(--card) 70%, var(--muted-bg));
+  color: var(--muted);
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+}
+
+/* Ambient background pattern */
+.bg-grid {
+  background-image: radial-gradient(circle at 1px 1px, color-mix(in oklab, var(--border) 35%, transparent) 1px, transparent 1px);
+  background-size: 18px 18px;
+}
+
+/* Gentle float animation */
+.float {
+  animation: float 6s ease-in-out infinite;
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+}
+
+/* Underline-on-hover link effect */
+.link-underline {
+  position: relative;
+}
+.link-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0%;
+  height: 2px;
+  background: var(--primary);
+  transition: width 200ms ease;
+}
+.link-underline:hover::after { width: 100%; }

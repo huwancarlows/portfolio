@@ -3,12 +3,12 @@ import React from "react";
 export default function ContactSection() {
     return (
         <div className="text-center space-y-4">
-            <h2 className="text-2xl font-semibold mb-2 text-gray-900 dark:text-white">Contact</h2>
-            <p className="text-gray-700 dark:text-gray-300">Let’s connect! You can reach me at:</p>
+            <h2 className="section-title">Contact</h2>
+            <p className="section-subtitle">Let’s connect! You can reach me at:</p>
             <div className="flex flex-col items-center gap-3">
                 <a
                     href="mailto:murillojuancarlos499@gmail.com"
-                    className="flex items-center gap-2 text-blue-500 dark:text-blue-300 hover:underline text-lg"
+                    className="flex items-center gap-2 text-blue-600 dark:text-blue-400 hover:underline text-lg"
                     aria-label="Email"
                 >
                     {/* Email Icon */}
@@ -17,7 +17,7 @@ export default function ContactSection() {
                 </a>
                 <a
                     href="tel:+639550470385"
-                    className="flex items-center gap-2 text-blue-500 dark:text-blue-300 hover:underline text-lg"
+                    className="flex items-center gap-2 text-blue-600 dark:text-blue-400 hover:underline text-lg"
                     aria-label="Phone"
                 >
                     {/* Phone Icon */}
@@ -26,7 +26,7 @@ export default function ContactSection() {
                 </a>
                 <a
                     href="https://www.facebook.com/juancarlos.murillo.9638"
-                    className="flex items-center gap-2 text-blue-500 dark:text-blue-300 hover:underline text-lg"
+                    className="flex items-center gap-2 text-blue-600 dark:text-blue-400 hover:underline text-lg"
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="Facebook"
