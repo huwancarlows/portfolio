@@ -14,7 +14,7 @@ export default async function ProjectDetailPage({ params }: Params) {
     return (
       <main className="container section">
         <h1 className="section-title">Project Not Found</h1>
-        <p className="section-subtitle mb-6">The project you're looking for doesn't exist.</p>
+        <p className="section-subtitle mb-6">The project you&apos;re looking for doesn&apos;t exist.</p>
         <Link href="/projects" className="pill">Back to Projects</Link>
       </main>
     );

@@ -11,7 +11,7 @@ export default function ProjectsIndexPage() {
   return (
     <main className="container section">
       <h1 className="section-title">Projects</h1>
-      <p className="section-subtitle mb-6">A selection of things I've built and explored.</p>
+      <p className="section-subtitle mb-6">A selection of things I&apos;ve built and explored.</p>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {projects.map((p) => (
           <Link key={p.slug} href={`/projects/${p.slug}`} className="card card-hover p-5 rounded-xl transition-transform duration-200 hover:scale-[1.02]">
